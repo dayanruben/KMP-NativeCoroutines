@@ -18,7 +18,7 @@ public val GENERATED_SOURCE_DIR: ConfigListOption<Path> =
  * Relative paths are preferred since they keep the compiler arguments,
  * and with that the Gradle build cache keys, independent of the project location.
  */
-public fun Path.isLocatedIn(dir: Path): Boolean {
+internal fun Path.isLocatedIn(dir: Path): Boolean {
     if (dir.isAbsolute) return startsWith(dir)
     return (0..(nameCount - dir.nameCount)).any { subpath(it, it + dir.nameCount) == dir }
 }
